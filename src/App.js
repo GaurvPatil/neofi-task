@@ -1,10 +1,18 @@
-
+import { Container } from "@mui/material";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-   <>
-   Working !
-   </>
+    <>
+      <NavBar />
+      <Container
+        maxWidth="xl"
+        sx={{ background: "black", height: "100vh" }}
+      >
+      
+        wekdhuwhdjh{" "}
+      </Container>
+    </>
   );
 }
 
