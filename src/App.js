@@ -1,5 +1,9 @@
 import { Container } from "@mui/material";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navBar/NavBar";
+import BuyCoin from "./components/buyCoin/BuyCoin";
+import "../src/";
+import { centerItem } from "./components/commonCss/commonCss";
+
 
 function App() {
   return (
@@ -7,10 +11,13 @@ function App() {
       <NavBar />
       <Container
         maxWidth="xl"
-        sx={{ background: "black", height: "100vh" }}
+        className="mainContainer"
+        sx={{
+          ...centerItem,
+          padding: { xs: "4rem 0", md: "7rem 0", lg: "12rem 0" },
+        }}
       >
-      
-        wekdhuwhdjh{" "}
+        <BuyCoin />
       </Container>
     </>
   );

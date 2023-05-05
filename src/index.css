@@ -1,6 +1,30 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
+}
+:root {
+  --main-bg-color: black;
+  --primary-text-color: #627eea;
+  --secondary-text-color: #5a5a5a;
+}
+
+.mainContainer {
+  background: var(--main-bg-color);
+}
+.PrimaryText {
+  color: var(--primary-text-color);
+}
+.secondaryText {
+  color: var(--secondary-text-color);
+}
+
+.amountInput::placeholder {
+  color: gray;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+#scollableDiv::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }

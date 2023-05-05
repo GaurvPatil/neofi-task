@@ -9,7 +9,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import logoImg from "../assets/logo.png";
+import logoImg from "../../assets/logo.png";
+import {
+  imgXS,
+  menueBoxXS,
+  menueXS,
+  imgMDLG,
+  menueBoxMDLG,
+  typoMDLG,
+  navButton,
+  borderBottom,
+} from "./navStyle";
 
 const pages = ["Trade", "Earn", "Support", "About"];
 
@@ -26,18 +36,11 @@ function NavBar() {
     <AppBar position="static" sx={{ background: "#0B0819" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              flexGrow: 1,
-            }}
-          >
+          <Typography component="a" sx={{ ...imgMDLG }}>
             <img src={logoImg} alt="LOGO" />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ ...menueBoxXS }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -50,7 +53,6 @@ function NavBar() {
             </IconButton>
 
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -63,9 +65,7 @@ function NavBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
+              sx={{ ...menueXS }}
             >
               {pages.map((page) => {
                 return (
@@ -73,15 +73,13 @@ function NavBar() {
                     {page === "Trade" ? (
                       <Typography
                         textAlign="center"
-                        sx={{
-                          borderBottom: "2px solid #627EEA",
-                          color: "#627EEA",
-                        }}
+                        className="PrimaryText"
+                        sx={{ ...borderBottom }}
                       >
                         {page}
                       </Typography>
                     ) : (
-                      <Typography textAlign="center" sx={{ color: "#5A5A5A" }}>
+                      <Typography textAlign="center" className="secondaryText">
                         {page}
                       </Typography>
                     )}
@@ -91,37 +89,27 @@ function NavBar() {
             </Menu>
           </Box>
 
-          <Typography
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-            }}
-          >
+          <Typography component="a" sx={{ ...imgXS }}>
             <img src={logoImg} alt="LOGO" />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ ...menueBoxMDLG }}>
             {pages.map((page) => {
               return (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   {page === "Trade" ? (
                     <Typography
                       textAlign="center"
-                      sx={{
-                        my: 2,
-                        display: "block",
-                        borderBottom: "2px solid #627EEA",
-                        color: "#627EEA",
-                      }}
+                      className="PrimaryText"
+                      sx={{ ...typoMDLG, ...borderBottom }}
                     >
                       {page}
                     </Typography>
                   ) : (
                     <Typography
                       textAlign="center"
-                      sx={{ my: 2, display: "block", color: "#5A5A5A" }}
+                      className="secondaryText"
+                      sx={{ ...typoMDLG }}
                     >
                       {page}
                     </Typography>
@@ -134,15 +122,7 @@ function NavBar() {
           <Button
             variant="contained"
             sx={{
-              p: 0,
-              padding: {
-                xs: "0.1rem 0.4rem",
-                md: "0.4rem 0.8rem",
-                lg: "0.5rem 0.9rem",
-              },
-              borderRadius: "1.8rem",
-              textTransform: "none",
-              background: "linear-gradient(45deg, #3387D5, #7A06C9)",
+              ...navButton,
             }}
           >
             Connect wallet
